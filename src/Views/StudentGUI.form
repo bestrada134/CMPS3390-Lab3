@@ -110,6 +110,12 @@
               <text value="Remove Student"/>
             </properties>
           </component>
+          <component id="72d23" class="javax.swing.JButton" binding="buttonClear">
+            <constraints/>
+            <properties>
+              <text value="Clear"/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>

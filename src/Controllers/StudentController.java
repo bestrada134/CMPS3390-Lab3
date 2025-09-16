@@ -6,9 +6,21 @@ import Views.StudentGUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class StudentController {
     public StudentController(StudentData model, StudentGUI view) {
+        try {
+            model.loadData();
+            for(Student student : model.getStudents()) {
+                view.addStudent(student);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         view.setAddStudentListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,6 +50,12 @@ public class StudentController {
 
                 model.removeStudent(student);
                 view.removeStudent(student);
+            }
+        });
+        view.setClearButtonListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.clearForm();
             }
         });
     }

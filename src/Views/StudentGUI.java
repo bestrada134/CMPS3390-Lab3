@@ -3,7 +3,6 @@ package Views;
 import Models.Student;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StudentGUI extends JFrame{
@@ -19,6 +18,7 @@ public class StudentGUI extends JFrame{
     private JPanel studentAction;
     private JButton buttonAddStudent;
     private JButton buttonRemoveStudent;
+    private JButton buttonClear;
     private DefaultListModel<Student> studentListData;
 
 
@@ -62,6 +62,9 @@ public class StudentGUI extends JFrame{
     }
     public void setRemoveStudentListener(ActionListener listener) {
         buttonRemoveStudent.addActionListener(listener);
+    }
+    public void setClearButtonListener(ActionListener listener){
+        buttonClear.addActionListener(listener);
     }
     public void showError(String error){
         JOptionPane.showMessageDialog(null, error);
